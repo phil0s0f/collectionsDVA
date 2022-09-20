@@ -1,14 +1,47 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
-    List<Integer> array = new ArrayList<>();
-    Random generator = new Random();
+    //TODO –ó–∞–¥–∞—á–∞ 1. –°–≥–µ–Ω–µ—Ä–∏—Ä—É–π—Ç–µ –º–∞—Å—Å–∏–≤ —Ü–µ–ª—ã—Ö —á–∏—Å–µ–ª, –∏—Å–ø–æ–ª—å–∑—É—è –∫–ª–∞—Å—Å Random(). –ò—Å–ø–æ–ª—å–∑—É—è –º–µ—Ç–æ–¥—ã –∫–ª–∞—Å—Å–æ–≤-–∫–æ–ª–ª–µ–∫—Ü–∏–π –æ–ø—Ä–µ–¥–µ–ª–∏—Ç–µ —É–Ω–∏–∫–∞–ª—å–Ω—ã–µ —á–∏—Å–ª–∞ (–≤–∞—Ä–∏–∞–Ω—Ç 2)
+    //TODO –ó–∞–¥–∞—á–∞ 9. –ù–µ –∏—Å–ø–æ–ª—å–∑—É—è –≤—Å–ø–æ–º–æ–≥–∞—Ç–µ–ª—å–Ω—ã—Ö –æ–±—ä–µ–∫—Ç–æ–≤, –ø–µ—Ä–µ—Å—Ç–∞–≤–∏—Ç—å –æ—Ç—Ä–∏—Ü–∞—Ç–µ–ª—å–Ω—ã–µ —ç–ª–µ–º–µ–Ω—Ç—ã –¥–∞–Ω–Ω–æ–≥–æ —Å–ø–∏—Å–∫–∞ –≤ –∫–æ–Ω–µ—Ü, –∞ –ø–æ–ª–æ–∂–∏—Ç–µ–ª—å–Ω—ã–µ - –≤ –Ω–∞—á–∞–ª–æ —ç—Ç–æ–≥–æ —Å–ø–∏—Å–∫–∞  (–≤–∞—Ä–∏–∞–Ω—Ç 18).
+    static List<Integer> addRandom(List<Integer> array, int N) {
+        Random generator = new Random();
+        for (int i = 0; i < N; i++) {
+            array.add(new Integer(generator.nextInt()));
+        }
+        return array;
+    }
+    static void outArray(List<Integer> array, int N) {
+        for (int i = 0; i < N; i++) {
+            System.out.print(array.get(i) + " ");
+        }
+        System.out.println();
+    }
+    static List<Integer> addArray(List<Integer> array, int N) {
+        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < N; i++) {
+            array.add(input.nextInt());
+        }
+        return array;
+    }
+    static void searchUnique(List<Integer> array, int N) {
+        HashSet uniqueArray = new HashSet();
+        for (int i = 0; i < N; i++) {
+            uniqueArray.add(array.get(i));
+        }
+        Iterator iterator = uniqueArray.iterator();
+        System.out.println("–£–Ω–∏–∫–∞–ª—å–Ω—ã–µ –∑–Ω–∞—á–µ–Ω–∏—è –º–∞—Å—Å–∏–≤–∞:");
+        while (iterator.hasNext()){
+            System.out.print(iterator.next() + " ");
+        }
+        System.out.println();
+    }
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        //TODO ˙¡ƒ¡ﬁ¡ 1. Û«≈Œ≈“…“’ ‘≈ Õ¡””…◊ √≈ÃŸ» ﬁ…”≈Ã, …”–œÃÿ⁄’— ÀÃ¡”” Random(). È”–œÃÿ⁄’— Õ≈‘œƒŸ ÀÃ¡””œ◊-ÀœÃÃ≈À√…  œ–“≈ƒ≈Ã…‘≈ ’Œ…À¡ÃÿŒŸ≈ ﬁ…”Ã¡ (◊¡“…¡Œ‘ 2)
-        //TODO ˙¡ƒ¡ﬁ¡ 9. Ó≈ …”–œÃÿ⁄’— ◊”–œÕœ«¡‘≈ÃÿŒŸ» œ¬ﬂ≈À‘œ◊, –≈“≈”‘¡◊…‘ÿ œ‘“…√¡‘≈ÃÿŒŸ≈ ‹Ã≈Õ≈Œ‘Ÿ ƒ¡ŒŒœ«œ ”–…”À¡ ◊ ÀœŒ≈√, ¡ –œÃœ÷…‘≈ÃÿŒŸ≈ - ◊ Œ¡ﬁ¡Ãœ ‹‘œ«œ ”–…”À¡  (◊¡“…¡Œ‘ 18).
-
+        Scanner input = new Scanner(System.in);
+        List<Integer> array = new ArrayList<>();
+        int N = input.nextInt();
+        //array = addRandom(array,N);
+        array = addArray(array,N);
+        outArray(array, N);
+        //array.sort();
     }
 }
