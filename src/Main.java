@@ -29,19 +29,24 @@ public class Main {
             uniqueArray.add(array.get(i));
         }
         Iterator iterator = uniqueArray.iterator();
-        System.out.println("Уникальные значения массива:");
+        System.out.println("Unique key array:");
         while (iterator.hasNext()){
             System.out.print(iterator.next() + " ");
         }
         System.out.println();
+        System.out.println(uniqueArray.size());
+
     }
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         List<Integer> array = new ArrayList<>();
         int N = input.nextInt();
-        //array = addRandom(array,N);
-        array = addArray(array,N);
+        array = addRandom(array,N);
+        //array = addArray(array,N);
         outArray(array, N);
-        //array.sort();
+        searchUnique(array,N);
+        Collections.sort(array);
+        Collections.reverse(array);
+        //outArray(array, N);
     }
 }
