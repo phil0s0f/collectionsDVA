@@ -4,9 +4,11 @@ public class Main {
     //TODO Задача 1. Сгенерируйте массив целых чисел, используя класс Random(). Используя методы классов-коллекций определите уникальные числа (вариант 2)
     //TODO Задача 9. Не используя вспомогательных объектов, переставить отрицательные элементы данного списка в конец, а положительные - в начало этого списка  (вариант 18).
     static List<Integer> addRandom(List<Integer> array, int N) {
-        Random generator = new Random();
+        Random random = new Random();
+        int min = 0, max = 10;
         for (int i = 0; i < N; i++) {
-            array.add(new Integer(generator.nextInt()));
+            //array.add(new Integer(random.nextInt(((max - min)+1)+min)));//диапозон от min до max
+            array.add(new Integer(random.nextInt()));
         }
         return array;
     }
@@ -29,7 +31,7 @@ public class Main {
             uniqueArray.add(array.get(i));
         }
         Iterator iterator = uniqueArray.iterator();
-        System.out.println("Unique key array:");
+        System.out.println("Unique value array:");
         while (iterator.hasNext()){
             System.out.print(iterator.next() + " ");
         }
@@ -42,11 +44,11 @@ public class Main {
         List<Integer> array = new ArrayList<>();
         int N = input.nextInt();
         array = addRandom(array,N);
-        //array = addArray(array,N);
+        //array = addArray(array,N);//Ручной ввод
         outArray(array, N);
         searchUnique(array,N);
         Collections.sort(array);
         Collections.reverse(array);
-        //outArray(array, N);
+        outArray(array, N);
     }
 }
